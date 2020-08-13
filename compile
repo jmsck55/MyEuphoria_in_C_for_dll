@@ -1,0 +1,9 @@
+#!/bin/bash
+# To run under Linux, use:
+# chmod 755 compile
+g++ -c -Wall -Werror -fpic libeuseq.cpp
+g++ -shared -o libeuseq.so libeuseq.o
+g++ -L/home/owner/MyEuphoria_in_C_for_dll-master -Wall -o test main.cpp -leuseq
+export LD_LIBRARY_PATH=/home/owner/MyEuphoria_in_C_for_dll-master:$LD_LIBRARY_PATH
+./test
+
